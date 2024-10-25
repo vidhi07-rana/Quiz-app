@@ -1,0 +1,28 @@
+/* src/app/app.component.css */
+
+  
+  .toolbar {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 64px; 
+    background-color: #1a1a1a;
+    color: #e0b3ff; 
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .content {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: black; 
+    padding: 20px;
+    color: #fff;
+  }
+  

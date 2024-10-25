@@ -1,0 +1,21 @@
+<mat-card>
+    <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
+    <p [innerHTML]="currentQuestion.questionText"></p>
+  
+    <app-answer
+      [options]="currentQuestion.options"
+      [correctAnswer]="currentQuestion.correctAnswer"
+      (answerSelected)="onAnswerSelected($event)">
+    </app-answer>
+  
+    <div class="navigation-buttons">
+        <button mat-fab color="primary" (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-fab color="primary" (click)="nextQuestion()" [disabled]="currentQuestionIndex === (questions.length - 1)">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+      
+  </mat-card>
+  

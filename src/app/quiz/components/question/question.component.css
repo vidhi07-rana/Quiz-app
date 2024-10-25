@@ -1,0 +1,81 @@
+mat-card {
+    width: 500px;
+    margin: 20px auto; 
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    min-height: 200px; 
+    height: 500px; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center; 
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 20px; 
+    text-align: center; 
+  }
+  
+  button {
+    margin: 5px; 
+  }
+  
+  button:disabled {
+    background-color: #ccc; 
+    color: #666; 
+  }
+  
+  div {
+    text-align: center; 
+  }
+  
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center; 
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 20px; 
+    text-align: center; 
+  }
+  
+  button {
+    margin: 5px; 
+  }
+  
+  button:disabled {
+    background-color: #ccc; 
+    color: #666;
+  }
+  
+  div {
+    text-align: center;
+  }
+  .navigation-buttons {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px; 
+  }
+  
+  mat-fab {
+    margin: 0 10px; 
+    width: 56px; 
+    height: 56px;
+  }
+  
+  mat-fab:disabled {
+    background-color: #ccc; 
+    color: #666;
+    cursor: not-allowed; 
+  }
+  
