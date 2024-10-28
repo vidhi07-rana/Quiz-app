@@ -1,21 +1,28 @@
-<mat-card>
-    <h2>Question {{ currentQuestionIndex + 1 }}:</h2>
-    <p [innerHTML]="currentQuestion.questionText"></p>
-  
-    <app-answer
-      [options]="currentQuestion.options"
-      [correctAnswer]="currentQuestion.correctAnswer"
-      (answerSelected)="onAnswerSelected($event)">
-    </app-answer>
-  
-    <div class="navigation-buttons">
-        <button mat-fab color="primary" (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-        <button mat-fab color="primary" (click)="nextQuestion()" [disabled]="currentQuestionIndex === (questions.length - 1)">
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-      </div>
-      
+
+<div *ngIf="isLoading  && !currentQuestion">
+  <p>Loading questions...</p> <!-- Message to show while loading -->
+</div>
+
+<div *ngIf="!quizCompleted && currentQuestion">
+  <mat-card>
+    <mat-card-title>Question {{ currentQuestionIndex + 1 }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ currentQuestion.questionText }}</p>
+      <app-answer
+        [options]="currentQuestion.options"
+        [correctAnswer]="currentQuestion.correctAnswer"
+        (answerSelected)="onAnswerSelected($event)">
+      </app-answer>
+    </mat-card-content>
+    <mat-card-actions style="margin-left: 140px;">
+      <button mat-button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">Previous</button>
+      <button mat-button (click)="nextQuestion()" [disabled]="currentQuestionIndex >= questions.length - 1">Next</button>
+    </mat-card-actions>
   </mat-card>
-  
+</div>
+
+<div *ngIf="quizCompleted">
+  <h2>Quiz Completed!</h2>
+  <p>Your score: {{ score }} out of {{ questions.length }}</p>
+  <button mat-raised-button (click)="restartQuiz()">Restart Quiz</button>
+</div>

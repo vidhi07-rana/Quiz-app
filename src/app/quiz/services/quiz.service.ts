@@ -21,6 +21,7 @@ export class QuizService {
   getQuestions(): Observable<Question[]> {
     return this.http.get<any>(this.api).pipe(
       map(response => {
+        console.log('API response:', response); // Log the full API response
         this.questions = response.results.map((item: any) => this.transformQuestion(item));
         return this.questions;
       })
@@ -43,23 +44,19 @@ export class QuizService {
   selectAnswer(answer: string): void {
     const currentQuestion = this.questions[this.currentQuestionIndex];
 
-    // Check if the answer is correct
     if (answer === currentQuestion.correctAnswer) {
       this.feedbackSubject.next('Correct!');
     } else {
       this.feedbackSubject.next('Wrong! The correct answer was: ' + currentQuestion.correctAnswer);
     }
 
-    // Move to the next question
     this.currentQuestionIndex++;
 
-    // Check if there are more questions left
     if (this.currentQuestionIndex >= this.questions.length) {
-      this.currentQuestionIndex = this.questions.length - 1; // Prevent going out of bounds
+      this.currentQuestionIndex = this.questions.length - 1; 
       this.feedbackSubject.next('Quiz Finished!');
     } else {
-      // Optionally, reset feedback after a delay for the component to react
-      setTimeout(() => this.feedbackSubject.next(null), 2000); // Clear feedback after 2 seconds
+      setTimeout(() => this.feedbackSubject.next(null), 2000); 
     }
   }
 

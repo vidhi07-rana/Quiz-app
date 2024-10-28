@@ -1,9 +1,13 @@
 <div class="answer-container">
-    <button
-      mat-raised-button
-      color="primary"
-      *ngFor="let option of options"
-      (click)="onSelect(option)">
-      {{ option }}
-    </button>
-  </div>
+  <button
+    mat-raised-button
+    *ngFor="let option of options"
+    (click)="onSelect(option)"
+    [ngClass]="{
+      'correc': selectedOption === option && isCorrect(option),
+      'incorrect': selectedOption === option && !isCorrect(option)
+    }"
+  >
+    {{ option }}
+  </button>
+</div>

@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { QuestionComponent } from "./quiz/components/question/question.component";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatToolbarModule,MatButtonModule, QuestionComponent],
+  imports: [RouterOutlet, MatToolbarModule,MatButtonModule, QuestionComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
